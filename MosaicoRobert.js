@@ -30,6 +30,7 @@ $(function () {
                             var div_pixel = $("#plantillas .pixel").clone();
                             div_pixel.width(div_baldosa.width/size_baldosa);
                             div_pixel.height(div_baldosa.height/size_baldosa);
+                            
                             var rojo_del_pixel = pixeles_imagen[((ibv*size_baldosa + ipv) * (canvas_imagen_original.width * 4)) + ((ibh*size_baldosa + iph) * 4)];
                             div_pixel.find("#lbl_color").text(Math.round(map(rojo_del_pixel, 0, 255, 1, 30)));
                             div_baldosa.append(div_pixel);
