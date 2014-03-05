@@ -22,11 +22,11 @@ $(function () {
             var cant_baldosas_h = Math.ceil(image.width/size_baldosa);
             var cant_baldosas_v = Math.ceil(image.height/size_baldosa);
             
-            for(var ibh; ibh< cant_baldosas_h; ibh++){
-                for(var ibv; ibv< cant_baldosas_v; ibv++){
+            for(var ibh=0; ibh< cant_baldosas_h; ibh++){
+                for(var ibv=0; ibv< cant_baldosas_v; ibv++){
                     var div_baldosa = $("#plantillas .baldosa").clone();
-                    for(var iph; iph< size_baldosa; iph++){
-                        for(var ipv; ipv< size_baldosa; ipv++){
+                    for(var iph=0; iph< size_baldosa; iph++){
+                        for(var ipv=0; ipv< size_baldosa; ipv++){
                             var div_pixel = $("#plantillas .pixel").clone();
                             var rojo_del_pixel = pixeles_imagen[((ibv*size_baldosa + ipv) * (canvas_imagen_original.width * 4)) + ((ibh*size_baldosa + iph) * 4)];
                             div_pixel.find("#lbl_color").text(map(rojo_del_pixel, 0, 255, 1, 30));
