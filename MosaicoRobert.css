@@ -1,0 +1,25 @@
+#plantillas{
+    display:none;
+}
+
+.baldosa{
+    display:inline-block;
+    width:200px;
+    height:200px;
+    margin:10px;
+    border:2px solid black;
+}
+
+.pixel{
+    display:inline-block;
+    border:1px solid black;
+    position:relative;
+}
+
+.pixel #lbl_color{
+    
+}
+
+#controles{
+    display:inline-block;
+}
