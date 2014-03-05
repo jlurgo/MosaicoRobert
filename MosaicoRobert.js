@@ -29,7 +29,7 @@ $(function () {
                         for(var ipv=0; ipv< size_baldosa; ipv++){
                             var div_pixel = $("#plantillas .pixel").clone();
                             var rojo_del_pixel = pixeles_imagen[((ibv*size_baldosa + ipv) * (canvas_imagen_original.width * 4)) + ((ibh*size_baldosa + iph) * 4)];
-                            div_pixel.find("#lbl_color").text(map(rojo_del_pixel, 0, 255, 1, 30).round());
+                            div_pixel.find("#lbl_color").text(Math.round(map(rojo_del_pixel, 0, 255, 1, 30)));
                             div_baldosa.append(div_pixel);
                         }
                     }
