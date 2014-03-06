@@ -4,11 +4,15 @@
 
 .baldosa{
     display:inline-block;
-    margin:10px;
 }
+
 .baldosa #contenedor_pixeles{
     width:650px;
     height:650px;
+}
+
+#numero_baldosa{
+    font-weight: bold;
 }
 
 .pixel{
@@ -36,4 +40,8 @@
 }
 #canvas_imagen_original {
     display: none;
+}
+
+#canvas_imagen_grande {
+    margin-bottom: 40px;
 }
