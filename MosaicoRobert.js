@@ -3,15 +3,28 @@ var map = function( x,  in_min,  in_max,  out_min,  out_max){
 };
     
 var dibujarBaldosas = function(baldosas){
-    //        var div_baldosa = $("#plantillas .baldosa").clone();
-    //        var div_pixel = $("#plantillas .pixel").clone();
-    //        div_pixel.width(div_baldosa.width/size_baldosa);
-    //        div_pixel.height(div_baldosa.height/size_baldosa);  
-    //        div_pixel.find("#lbl_color").text(Math.round(map(rojo_del_pixel, 0, 255, 1, 30)));
-    //        div_baldosa.append(div_pixel);
-    //        contenedor_baldosas.append(div_baldosa);
-    var a = "a";
-        
+    var size_baldosa = $("#size_baldosa").val();
+    var cant_baldosas_h = Math.ceil(image.width/size_baldosa);
+    var cant_baldosas_v = Math.ceil(image.height/size_baldosa);
+    var contenedor_baldosas = $("#contenedor_baldosas");
+    
+    for(var ibh=0; ibh< cant_baldosas_h; ibh++){
+        for(var ibv=0; ibv< cant_baldosas_v; ibv++){
+            var div_baldosa = $("#plantillas .baldosa").clone();
+            
+            for(var iph=0; iph< size_baldosa; iph++){
+                for(var ipv=0; ipv< size_baldosa; ipv++){    
+                    var div_pixel = $("#plantillas .pixel").clone();
+                    div_pixel.width(div_baldosa.width/size_baldosa);
+                    div_pixel.height(div_baldosa.height/size_baldosa);  
+                    div_pixel.find("#lbl_color").text(baldosas[(cant_baldosas_h*ibh) + ibv][(size_baldosa * iph) + ipv]);                
+                    div_baldosa.append(div_pixel);
+                }
+            }
+            
+            contenedor_baldosas.append(div_baldosa);
+        }                  
+    }             
 };
     
 $(function () { 
@@ -22,7 +35,6 @@ $(function () {
     image.src = "imagen_original.jpg";
     
     var btn_generar = $("#btn_generar");
-    var contenedor_baldosas = $("#contenedor_baldosas");
     
     $(image).load(function() {
         $canvas_imagen_original.attr("width", image.width);
