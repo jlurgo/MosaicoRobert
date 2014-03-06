@@ -60,7 +60,7 @@ $(function () {
             contenedor_baldosas.empty();
             var divs_baldosas = [];
             //for(var i=0; i< baldosas.length; i++){
-            for(var i=0; i< 100; i++){ //debug sacar
+            for(var i=500; i< 600; i++){ //debug sacar
                 var div_baldosa = plantilla_baldosa.clone();
                 div_baldosa.find("#numero_baldosa").text(i);
                 var baldosa = baldosas[i];
