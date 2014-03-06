@@ -45,6 +45,7 @@ $(function () {
                 }                  
             }            
 
+            capa_baldosas.empty();
             capa_baldosas.css("width", (cant_baldosas_h*size_baldosa*2).toString()+"px");
             capa_baldosas.css("height", (cant_baldosas_v*size_baldosa*2).toString()+"px");
 
@@ -55,9 +56,11 @@ $(function () {
                 div_baldosa.find("#lbl_color").text(i);                
                 capa_baldosas.append(div_baldosa);
             }
-            contenedor_baldosas.hide();
+            
+            contenedor_baldosas.empty();
+            var divs_baldosas = [];
             //for(var i=0; i< baldosas.length; i++){
-            for(var i=0; i< 5; i++){ //debug sacar
+            for(var i=0; i< 20; i++){ //debug sacar
                 var div_baldosa = plantilla_baldosa.clone();
                 div_baldosa.find("#numero_baldosa").text(i);
                 var baldosa = baldosas[i];
@@ -70,9 +73,11 @@ $(function () {
                     div_pixel.find("#lbl_color").text(baldosa[j]);                
                     div_baldosa.find("#contenedor_pixeles").append(div_pixel);
                 }
-                contenedor_baldosas.append(div_baldosa);
+                divs_baldosas.push(div_baldosa);
             }     
-            contenedor_baldosas.show();
+            for(var i=0; i< divs_baldosas.length; i++){
+                contenedor_baldosas.append(divs_baldosas[i]);
+            }
         });  
         
     });
