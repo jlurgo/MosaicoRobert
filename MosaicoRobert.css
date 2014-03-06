@@ -4,6 +4,7 @@
 
 .baldosa{
     display:inline-block;
+    margin-right: 5px;
 }
 
 .baldosa #contenedor_pixeles{
