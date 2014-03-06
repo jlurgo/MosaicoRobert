@@ -58,7 +58,7 @@ $(function () {
             }
             
             contenedor_baldosas.empty();
-            var divs_baldosas = [];
+            var cont_baldosas_tmp = $("<div>");
             //for(var i=0; i< baldosas.length; i++){
             for(var i=500; i< 600; i++){ //debug sacar
                 var div_baldosa = plantilla_baldosa.clone();
@@ -73,11 +73,9 @@ $(function () {
                     div_pixel.find("#lbl_color").text(baldosa[j]);                
                     div_baldosa.find("#contenedor_pixeles").append(div_pixel);
                 }
-                divs_baldosas.push(div_baldosa);
+                cont_baldosas_tmp.append(div_baldosa);
             }     
-            for(var i=0; i< divs_baldosas.length; i++){
-                contenedor_baldosas.append(divs_baldosas[i]);
-            }
+            contenedor_baldosas.append(cont_baldosas_tmp);
         });  
         
     });
