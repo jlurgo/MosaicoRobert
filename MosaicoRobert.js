@@ -32,16 +32,36 @@ $(function () {
             var cant_baldosas_v = Math.ceil(image.height/size_baldosa);
             var baldosas = [];
             
-            for(var ibv=0; ibv< cant_baldosas_v; ibv++){
+            contenedor_baldosas.empty();
+            var cont_baldosas_tmp = $("<div>");
+            
+            //for(var ibv=0; ibv< cant_baldosas_v; ibv++){
+            for(var ibv=0; ibv< 3; ibv++){
                 for(var ibh=0; ibh< cant_baldosas_h; ibh++){
                     var baldosa = [];
+                    
+                    var div_baldosa = plantilla_baldosa.clone();
+                    div_baldosa.find("#numero_baldosa").text(i);
+                                        
                     for(var ipv=0; ipv< size_baldosa; ipv++){                            
                         for(var iph=0; iph< size_baldosa; iph++){
-                            var rojo_del_pixel = pixeles_imagen[((ibv*size_baldosa + ipv) * (canvas_imagen_original.width * 4)) + ((ibh*size_baldosa + iph) * 4)];
-                            baldosa.push(Math.round(map(rojo_del_pixel, 0, 255, 1, 30)));
+                            if(((ibv*size_baldosa + ipv)<image.height) && ((ibv*size_baldosa + ipv)<image.width)){
+                                var gris_del_pixel = pixeles_imagen[((ibv*size_baldosa + ipv) * (canvas_imagen_original.width * 4)) + ((ibh*size_baldosa + iph) * 4)];
+                                var gris_del_pixel_mapeado = Math.round(map(rojo_del_pixel, 0, 255, 1, 30));
+                                //baldosa.push(Math.round(map(rojo_del_pixel, 0, 255, 1, 30)));
+                                
+                                var div_pixel = plantilla_pixel.clone();
+                                
+                                div_pixel.css("width", Math.floor(600/size_baldosa).toString()+"px");
+                                div_pixel.css("height", Math.floor(600/size_baldosa).toString()+"px");
+                                div_pixel.css("background-color", "rgb("+ gris_del_pixel +","+ gris_del_pixel +","+ gris_del_pixel +")");
+                                div_pixel.find("#lbl_color").text(gris_del_pixel_mapeado);                
+                                div_baldosa.find("#contenedor_pixeles").append(div_pixel);
+                            }
                         }
                     }
-                    baldosas.push(baldosa);
+                    //baldosas.push(baldosa);
+                    cont_baldosas_tmp.append(div_baldosa);
                 }                  
             }            
 
@@ -57,24 +77,23 @@ $(function () {
                 capa_baldosas.append(div_baldosa);
             }
             
-            contenedor_baldosas.empty();
-            var cont_baldosas_tmp = $("<div>");
-            //for(var i=0; i< baldosas.length; i++){
-            for(var i=500; i< 600; i++){ //debug sacar
-                var div_baldosa = plantilla_baldosa.clone();
-                div_baldosa.find("#numero_baldosa").text(i);
-                var baldosa = baldosas[i];
-                for(var j=0; j<baldosa.length; j++){
-                    var div_pixel = plantilla_pixel.clone();
-                    var gris = Math.round(map(baldosa[j], 1, 30, 0, 255));
-                    div_pixel.css("width", Math.floor(600/size_baldosa).toString()+"px");
-                    div_pixel.css("height", Math.floor(600/size_baldosa).toString()+"px");
-                    div_pixel.css("background-color", "rgb("+ gris +","+ gris +","+ gris +")");
-                    div_pixel.find("#lbl_color").text(baldosa[j]);                
-                    div_baldosa.find("#contenedor_pixeles").append(div_pixel);
-                }
-                cont_baldosas_tmp.append(div_baldosa);
-            }     
+//            var cont_baldosas_tmp = $("<div>");
+//            //for(var i=0; i< baldosas.length; i++){
+//            for(var i=500; i< 600; i++){ //debug sacar
+//                var div_baldosa = plantilla_baldosa.clone();
+//                div_baldosa.find("#numero_baldosa").text(i);
+//                var baldosa = baldosas[i];
+//                for(var j=0; j<baldosa.length; j++){
+//                    var div_pixel = plantilla_pixel.clone();
+//                    var gris = Math.round(map(baldosa[j], 1, 30, 0, 255));
+//                    div_pixel.css("width", Math.floor(600/size_baldosa).toString()+"px");
+//                    div_pixel.css("height", Math.floor(600/size_baldosa).toString()+"px");
+//                    div_pixel.css("background-color", "rgb("+ gris +","+ gris +","+ gris +")");
+//                    div_pixel.find("#lbl_color").text(baldosa[j]);                
+//                    div_baldosa.find("#contenedor_pixeles").append(div_pixel);
+//                }
+//                cont_baldosas_tmp.append(div_baldosa);
+//            }     
             contenedor_baldosas.append(cont_baldosas_tmp);
         });  
         
