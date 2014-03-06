@@ -53,8 +53,8 @@ $(function () {
 
                                 var div_pixel = plantilla_pixel.clone();
                                 
-                                div_pixel.css("width", Math.floor(650/size_baldosa).toString()+"px");
-                                div_pixel.css("height", Math.floor(650/size_baldosa).toString()+"px");
+                                div_pixel.css("width", Math.floor(630/size_baldosa).toString()+"px");
+                                div_pixel.css("height", Math.floor(630/size_baldosa).toString()+"px");
                                 div_pixel.css("background-color", "rgb("+ gris_del_pixel +","+ gris_del_pixel +","+ gris_del_pixel +")");
                                 div_pixel.find("#lbl_color").text(gris_del_pixel_mapeado);                
                                 div_baldosa.find("#contenedor_pixeles").append(div_pixel);
