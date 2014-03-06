@@ -12,8 +12,8 @@ var dibujarBaldosas = function(baldosas){
         var baldosa = baldosas[i];
         for(var j=0; j<baldosa.length; j++){
             var div_pixel = $("#plantillas .pixel").clone();
-            div_pixel.css("width", Math.round(div_baldosa.width/size_baldosa).toString()+"px");
-            div_pixel.css("height", Math.round(div_baldosa.height/size_baldosa).toString()+"px");
+            div_pixel.css("width", Math.round(500/size_baldosa).toString()+"px");
+            div_pixel.css("height", Math.round(500/size_baldosa).toString()+"px");
             div_pixel.find("#lbl_color").text(baldosa[j]);                
             div_baldosa.find("#contenedor_pixeles").append(div_pixel);
         }
