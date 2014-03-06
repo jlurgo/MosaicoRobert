@@ -38,18 +38,15 @@ $(function () {
             //for(var ibv=0; ibv< cant_baldosas_v; ibv++){
             for(var ibv=0; ibv< 2; ibv++){
                 for(var ibh=0; ibh< cant_baldosas_h; ibh++){
-                    var baldosa = [];
-                    
                     var div_baldosa = plantilla_baldosa.clone();
                     div_baldosa.find("#numero_baldosa").text(ibv*cant_baldosas_h + ibh);
                                         
                     for(var ipv=0; ipv< size_baldosa; ipv++){                            
                         for(var iph=0; iph< size_baldosa; iph++){
-                            if(((ibv*size_baldosa + ipv)<image.height) && ((ibv*size_baldosa + ipv)<image.width)){
+                            if((((ibv*size_baldosa) + ipv)<image.height) && (((ibv*size_baldosa) + ipv)<image.width)){
                                 var gris_del_pixel = pixeles_imagen[((ibv*size_baldosa + ipv) * (canvas_imagen_original.width * 4)) + ((ibh*size_baldosa + iph) * 4)];
                                 var gris_del_pixel_mapeado = Math.round(map(gris_del_pixel, 0, 255, 1, 30));
-                                //baldosa.push(Math.round(map(rojo_del_pixel, 0, 255, 1, 30)));
-                                
+
                                 var div_pixel = plantilla_pixel.clone();
                                 
                                 div_pixel.css("width", Math.floor(600/size_baldosa).toString()+"px");
@@ -57,11 +54,12 @@ $(function () {
                                 div_pixel.css("background-color", "rgb("+ gris_del_pixel +","+ gris_del_pixel +","+ gris_del_pixel +")");
                                 div_pixel.find("#lbl_color").text(gris_del_pixel_mapeado);                
                                 div_baldosa.find("#contenedor_pixeles").append(div_pixel);
+                            }else{
+                                var a="a";
                             }
                         }
                         div_baldosa.find("#contenedor_pixeles").append($("<br/>"));
                     }
-                    //baldosas.push(baldosa);
                     cont_baldosas_tmp.append(div_baldosa);
                 }                  
             }            
