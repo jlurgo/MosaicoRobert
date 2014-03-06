@@ -4,8 +4,6 @@ var map = function( x,  in_min,  in_max,  out_min,  out_max){
     
 var dibujarBaldosas = function(baldosas){
     var size_baldosa = $("#size_baldosa").val();
-    var cant_baldosas_h = Math.ceil(image.width/size_baldosa);
-    var cant_baldosas_v = Math.ceil(image.height/size_baldosa);
     var contenedor_baldosas = $("#contenedor_baldosas");
     
     for(var i=0; i< baldosas.length; i++){
