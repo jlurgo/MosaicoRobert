@@ -47,7 +47,7 @@ $(function () {
                         for(var iph=0; iph< size_baldosa; iph++){
                             if(((ibv*size_baldosa + ipv)<image.height) && ((ibv*size_baldosa + ipv)<image.width)){
                                 var gris_del_pixel = pixeles_imagen[((ibv*size_baldosa + ipv) * (canvas_imagen_original.width * 4)) + ((ibh*size_baldosa + iph) * 4)];
-                                var gris_del_pixel_mapeado = Math.round(map(rojo_del_pixel, 0, 255, 1, 30));
+                                var gris_del_pixel_mapeado = Math.round(map(gris_del_pixel, 0, 255, 1, 30));
                                 //baldosa.push(Math.round(map(rojo_del_pixel, 0, 255, 1, 30)));
                                 
                                 var div_pixel = plantilla_pixel.clone();
