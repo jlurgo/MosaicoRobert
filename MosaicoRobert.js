@@ -23,10 +23,10 @@ $(function () {
     $(image).load(function() {
         $canvas_imagen_original.attr("width", image.width);
         $canvas_imagen_original.attr("height", image.height);
-        $canvas_imagen_grande.attr("width", image.width*2);
-        $canvas_imagen_grande.attr("height", image.height*2);
+        $canvas_imagen_grande.attr("width", image.width*1.7);
+        $canvas_imagen_grande.attr("height", image.height*1.7);
         ctx.drawImage(image, 0, 0);
-        ctx_grande.drawImage(image, 0, 0, image.width*1.8, image.height*1.8);
+        ctx_grande.drawImage(image, 0, 0, image.width*1.7, image.height*1.7);
         var pixeles_imagen = ctx.getImageData(0, 0, image.width, image.height).data;
         btn_generar.click(function(){
             controles.hide();
@@ -52,8 +52,8 @@ $(function () {
 
                                 var div_pixel = plantilla_pixel.clone();
                                 
-                                div_pixel.css("width", Math.floor(600/size_baldosa).toString()+"px");
-                                div_pixel.css("height", Math.floor(600/size_baldosa).toString()+"px");
+                                div_pixel.css("width", Math.floor(650/size_baldosa).toString()+"px");
+                                div_pixel.css("height", Math.floor(650/size_baldosa).toString()+"px");
                                 div_pixel.css("background-color", "rgb("+ gris_del_pixel +","+ gris_del_pixel +","+ gris_del_pixel +")");
                                 div_pixel.find("#lbl_color").text(gris_del_pixel_mapeado);                
                                 div_baldosa.find("#contenedor_pixeles").append(div_pixel);
@@ -68,13 +68,13 @@ $(function () {
             }            
 
             capa_baldosas.empty();
-            capa_baldosas.css("width", (cant_baldosas_h*size_baldosa*1.8).toString()+"px");
-            capa_baldosas.css("height", (cant_baldosas_v*size_baldosa*1.8).toString()+"px");
+            capa_baldosas.css("width", (cant_baldosas_h*size_baldosa*1.7).toString()+"px");
+            capa_baldosas.css("height", (cant_baldosas_v*size_baldosa*1.7).toString()+"px");
 
             for(var i=0; i< cant_baldosas_h*cant_baldosas_v; i++){
                 var div_baldosa = plantilla_pixel.clone();
-                div_baldosa.css("width", (size_baldosa*1.8).toString()+"px");
-                div_baldosa.css("height", (size_baldosa*1.8).toString()+"px");
+                div_baldosa.css("width", (size_baldosa*1.7).toString()+"px");
+                div_baldosa.css("height", (size_baldosa*1.7).toString()+"px");
                 div_baldosa.find("#lbl_color").text(i);                
                 capa_baldosas.append(div_baldosa);
             }
