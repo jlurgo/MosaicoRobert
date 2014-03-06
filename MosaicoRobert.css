@@ -5,7 +5,6 @@
 .baldosa{
     display:inline-block;
     margin:10px;
-    border:2px solid black;
 }
 .baldosa #contenedor_pixeles{
     width:500px;
