@@ -43,7 +43,7 @@ $(function () {
                                         
                     for(var ipv=0; ipv< size_baldosa; ipv++){                            
                         for(var iph=0; iph< size_baldosa; iph++){
-                            if((((ibv*size_baldosa) + ipv)<image.height) && (((ibv*size_baldosa) + ipv)<image.width)){
+                            if((((ibv*size_baldosa) + ipv)<image.height) && (((ibh*size_baldosa) + iph)<image.width)){
                                 var gris_del_pixel = pixeles_imagen[((ibv*size_baldosa + ipv) * (canvas_imagen_original.width * 4)) + ((ibh*size_baldosa + iph) * 4)];
                                 var gris_del_pixel_mapeado = Math.round(map(gris_del_pixel, 0, 255, 1, 30));
 
