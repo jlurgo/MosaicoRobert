@@ -39,8 +39,8 @@ $(function () {
             contenedor_baldosas.empty();
             var cont_baldosas_tmp = $("<div>");
             
-            //for(var ibv=0; ibv< cant_baldosas_v; ibv++){
-            for(var ibv=0; ibv< 1; ibv++){
+            for(var ibv=0; ibv< cant_baldosas_v; ibv++){
+            //for(var ibv=0; ibv< 1; ibv++){
                 for(var ibh=0; ibh< cant_baldosas_h; ibh++){
                     var div_baldosa = plantilla_baldosa.clone();
                     div_baldosa.find("#numero_baldosa").text(ibv*cant_baldosas_h + ibh);
