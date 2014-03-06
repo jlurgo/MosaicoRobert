@@ -30,4 +30,6 @@
 
 #capa_baldosas{
     position:absolute;
+    top: 7px;
+    color: white;
 }

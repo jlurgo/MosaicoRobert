@@ -8,6 +8,10 @@ var dibujarBaldosas = function(baldosas){
     var plantilla_baldosa = $("#plantillas .baldosa");
     var plantilla_pixel = $("#plantillas .pixel");
     var capa_baldosas = $("#capa_baldosas");
+    
+    capa_baldosas.css("width", canvas_imagen_original.width.toString()+"px");
+    capa_baldosas.css("height", canvas_imagen_original.height.toString()+"px");
+    
     for(var i=0; i< baldosas.length; i++){
         var div_baldosa = plantilla_pixel.clone();
         div_baldosa.css("width", Math.floor(size_baldosa).toString()+"px");
@@ -34,10 +38,10 @@ var dibujarBaldosas = function(baldosas){
 };
     
 $(function () { 
-    var $canvas_imagen_original = $("#canvas_imagen_original");
-    var canvas_imagen_original = $canvas_imagen_original[0];
-    var ctx = canvas_imagen_original.getContext("2d");
-    var image = new Image();
+    $canvas_imagen_original = $("#canvas_imagen_original");
+    canvas_imagen_original = $canvas_imagen_original[0];
+    ctx = canvas_imagen_original.getContext("2d");
+    image = new Image();
     image.src = "imagen_original.jpg";
     
     var btn_generar = $("#btn_generar");
