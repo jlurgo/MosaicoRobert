@@ -8,11 +8,12 @@ var dibujarBaldosas = function(baldosas){
     
     for(var i=0; i< baldosas.length; i++){
         var div_baldosa = $("#plantillas .baldosa").clone();
-        for(var j=0; baldosas[i][j].length; j++){
+        var baldosa = baldosas[i];
+        for(var j=0; j<baldosa.length; j++){
             var div_pixel = $("#plantillas .pixel").clone();
             div_pixel.width(div_baldosa.width/size_baldosa);
             div_pixel.height(div_baldosa.height/size_baldosa);  
-            div_pixel.find("#lbl_color").text(baldosas[i][j]);                
+            div_pixel.find("#lbl_color").text(baldosa[j]);                
             div_baldosa.append(div_pixel);
         }
         contenedor_baldosas.append(div_baldosa);
