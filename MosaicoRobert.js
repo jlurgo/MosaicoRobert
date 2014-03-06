@@ -59,6 +59,7 @@ $(function () {
                                 div_baldosa.find("#contenedor_pixeles").append(div_pixel);
                             }
                         }
+                        div_baldosa.find("#contenedor_pixeles").append($("<br/>"));
                     }
                     //baldosas.push(baldosa);
                     cont_baldosas_tmp.append(div_baldosa);
