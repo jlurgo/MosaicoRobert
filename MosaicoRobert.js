@@ -12,7 +12,7 @@ var dibujarBaldosas = function(baldosas){
         var div_baldosa = plantilla_pixel.clone();
         div_baldosa.css("width", Math.floor(size_baldosa).toString()+"px");
         div_baldosa.css("height", Math.floor(size_baldosa).toString()+"px");
-        div_baldosa.find("#lbl_color").text(baldosa[j]);                
+        div_baldosa.find("#lbl_color").text(i);                
         capa_baldosas.append(div_baldosa);
     }
     contenedor_baldosas.hide();
