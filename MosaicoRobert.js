@@ -36,12 +36,12 @@ $(function () {
             var cont_baldosas_tmp = $("<div>");
             
             //for(var ibv=0; ibv< cant_baldosas_v; ibv++){
-            for(var ibv=0; ibv< 3; ibv++){
+            for(var ibv=0; ibv< 2; ibv++){
                 for(var ibh=0; ibh< cant_baldosas_h; ibh++){
                     var baldosa = [];
                     
                     var div_baldosa = plantilla_baldosa.clone();
-                    div_baldosa.find("#numero_baldosa").text(i);
+                    div_baldosa.find("#numero_baldosa").text(ibv*cant_baldosas_h + ibh);
                                         
                     for(var ipv=0; ipv< size_baldosa; ipv++){                            
                         for(var iph=0; iph< size_baldosa; iph++){
