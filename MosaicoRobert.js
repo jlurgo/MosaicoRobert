@@ -20,13 +20,14 @@ $(function () {
     
     var controles = $("#controles");
     
+    var escala = 1.6;
     $(image).load(function() {
         $canvas_imagen_original.attr("width", image.width);
         $canvas_imagen_original.attr("height", image.height);
-        $canvas_imagen_grande.attr("width", image.width*1.7);
-        $canvas_imagen_grande.attr("height", image.height*1.7);
+        $canvas_imagen_grande.attr("width", image.width*escala);
+        $canvas_imagen_grande.attr("height", image.height*escala);
         ctx.drawImage(image, 0, 0);
-        ctx_grande.drawImage(image, 0, 0, image.width*1.7, image.height*1.7);
+        ctx_grande.drawImage(image, 0, 0, image.width*escala, image.height*escala);
         var pixeles_imagen = ctx.getImageData(0, 0, image.width, image.height).data;
         btn_generar.click(function(){
             controles.hide();
@@ -39,7 +40,7 @@ $(function () {
             var cont_baldosas_tmp = $("<div>");
             
             //for(var ibv=0; ibv< cant_baldosas_v; ibv++){
-            for(var ibv=0; ibv< 2; ibv++){
+            for(var ibv=0; ibv< 1; ibv++){
                 for(var ibh=0; ibh< cant_baldosas_h; ibh++){
                     var div_baldosa = plantilla_baldosa.clone();
                     div_baldosa.find("#numero_baldosa").text(ibv*cant_baldosas_h + ibh);
@@ -68,13 +69,13 @@ $(function () {
             }            
 
             capa_baldosas.empty();
-            capa_baldosas.css("width", (cant_baldosas_h*size_baldosa*1.7).toString()+"px");
-            capa_baldosas.css("height", (cant_baldosas_v*size_baldosa*1.7).toString()+"px");
+            capa_baldosas.css("width", (cant_baldosas_h*size_baldosa*escala).toString()+"px");
+            capa_baldosas.css("height", (cant_baldosas_v*size_baldosa*escala).toString()+"px");
 
             for(var i=0; i< cant_baldosas_h*cant_baldosas_v; i++){
                 var div_baldosa = plantilla_pixel.clone();
-                div_baldosa.css("width", (size_baldosa*1.7).toString()+"px");
-                div_baldosa.css("height", (size_baldosa*1.7).toString()+"px");
+                div_baldosa.css("width", (size_baldosa*escala).toString()+"px");
+                div_baldosa.css("height", (size_baldosa*escala).toString()+"px");
                 div_baldosa.find("#lbl_color").text(i);                
                 capa_baldosas.append(div_baldosa);
             }
