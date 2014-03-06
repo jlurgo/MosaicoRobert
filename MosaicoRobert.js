@@ -9,8 +9,8 @@ var dibujarBaldosas = function(baldosas){
     var plantilla_pixel = $("#plantillas .pixel");
     var capa_baldosas = $("#capa_baldosas");
     
-    capa_baldosas.css("width", canvas_imagen_original.width.toString()+"px");
-    capa_baldosas.css("height", canvas_imagen_original.height.toString()+"px");
+    capa_baldosas.css("width", (Math.ceil(canvas_imagen_original.width/size_baldosa)*size_baldosa).toString()+"px");
+    capa_baldosas.css("height", (Math.ceil(canvas_imagen_original.width/size_baldosa)*size_baldosa).toString()+"px");
     
     for(var i=0; i< baldosas.length; i++){
         var div_baldosa = plantilla_pixel.clone();
