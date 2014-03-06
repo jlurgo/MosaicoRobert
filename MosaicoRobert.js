@@ -9,7 +9,8 @@ var dibujarBaldosas = function(baldosas){
     var plantilla_pixel = $("#plantillas .pixel");
     
     contenedor_baldosas.hide();
-    for(var i=0; i< baldosas.length; i++){
+    //for(var i=0; i< baldosas.length; i++){
+    for(var i=0; i< 5; i++){ //debug sacar
         var div_baldosa = plantilla_baldosa.clone();
         div_baldosa.find("#numero_baldosa").text(i);
         var baldosa = baldosas[i];
