@@ -2,6 +2,18 @@ var map = function( x,  in_min,  in_max,  out_min,  out_max){
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 };
     
+var dibujarBaldosas = function(baldosas){
+    //        var div_baldosa = $("#plantillas .baldosa").clone();
+    //        var div_pixel = $("#plantillas .pixel").clone();
+    //        div_pixel.width(div_baldosa.width/size_baldosa);
+    //        div_pixel.height(div_baldosa.height/size_baldosa);  
+    //        div_pixel.find("#lbl_color").text(Math.round(map(rojo_del_pixel, 0, 255, 1, 30)));
+    //        div_baldosa.append(div_pixel);
+    //        contenedor_baldosas.append(div_baldosa);
+    var a = "a";
+        
+};
+    
 $(function () { 
     var $canvas_imagen_original = $("#canvas_imagen_original");
     var canvas_imagen_original = $canvas_imagen_original[0];
@@ -21,24 +33,22 @@ $(function () {
             var size_baldosa = $("#size_baldosa").val();
             var cant_baldosas_h = Math.ceil(image.width/size_baldosa);
             var cant_baldosas_v = Math.ceil(image.height/size_baldosa);
+            var baldosas = [];
             
             for(var ibh=0; ibh< cant_baldosas_h; ibh++){
                 for(var ibv=0; ibv< cant_baldosas_v; ibv++){
-                    var div_baldosa = $("#plantillas .baldosa").clone();
+                    var baldosa = [];
                     for(var iph=0; iph< size_baldosa; iph++){
-                        for(var ipv=0; ipv< size_baldosa; ipv++){
-                            var div_pixel = $("#plantillas .pixel").clone();
-                            div_pixel.width(div_baldosa.width/size_baldosa);
-                            div_pixel.height(div_baldosa.height/size_baldosa);
-                            
+                        for(var ipv=0; ipv< size_baldosa; ipv++){                            
                             var rojo_del_pixel = pixeles_imagen[((ibv*size_baldosa + ipv) * (canvas_imagen_original.width * 4)) + ((ibh*size_baldosa + iph) * 4)];
-                            div_pixel.find("#lbl_color").text(Math.round(map(rojo_del_pixel, 0, 255, 1, 30)));
-                            div_baldosa.append(div_pixel);
+                            baldosa.push(Math.round(map(rojo_del_pixel, 0, 255, 1, 30)));
                         }
                     }
-                    contenedor_baldosas.append(div_baldosa);
+                    baldosas.push(baldosa);
                 }                  
-            }
-        });        
+            }            
+            dibujarBaldosas(baldosas);
+        });  
+        
     });
 });
