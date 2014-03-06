@@ -4,16 +4,19 @@
 
 .baldosa{
     display:inline-block;
-    width:500px;
-    height:500px;
     margin:10px;
     border:2px solid black;
+}
+.baldosa #contenedor_pixeles{
+    width:500px;
+    height:500px;
 }
 
 .pixel{
     display:inline-block;
     border:1px solid black;
     position:relative;
+    box-sizing:border-box;
 }
 
 .pixel #lbl_color{
