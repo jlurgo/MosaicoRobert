@@ -70,7 +70,7 @@ $(function () {
             capa_baldosas.css("width", (cant_baldosas_h*size_baldosa*2).toString()+"px");
             capa_baldosas.css("height", (cant_baldosas_v*size_baldosa*2).toString()+"px");
 
-            for(var i=0; i< baldosas.length; i++){
+            for(var i=0; i< cant_baldosas_h*cant_baldosas_v; i++){
                 var div_baldosa = plantilla_pixel.clone();
                 div_baldosa.css("width", (size_baldosa*2).toString()+"px");
                 div_baldosa.css("height", (size_baldosa*2).toString()+"px");
