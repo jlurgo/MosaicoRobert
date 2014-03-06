@@ -8,23 +8,17 @@ var dibujarBaldosas = function(baldosas){
     var cant_baldosas_v = Math.ceil(image.height/size_baldosa);
     var contenedor_baldosas = $("#contenedor_baldosas");
     
-    for(var ibh=0; ibh< cant_baldosas_h; ibh++){
-        for(var ibv=0; ibv< cant_baldosas_v; ibv++){
-            var div_baldosa = $("#plantillas .baldosa").clone();
-            
-            for(var iph=0; iph< size_baldosa; iph++){
-                for(var ipv=0; ipv< size_baldosa; ipv++){    
-                    var div_pixel = $("#plantillas .pixel").clone();
-                    div_pixel.width(div_baldosa.width/size_baldosa);
-                    div_pixel.height(div_baldosa.height/size_baldosa);  
-                    div_pixel.find("#lbl_color").text(baldosas[(cant_baldosas_h*ibh) + ibv][(size_baldosa * iph) + ipv]);                
-                    div_baldosa.append(div_pixel);
-                }
-            }
-            
-            contenedor_baldosas.append(div_baldosa);
-        }                  
-    }             
+    for(var i=0; i< baldosas.length; i++){
+        var div_baldosa = $("#plantillas .baldosa").clone();
+        for(var j=0; baldosa[i].length; j++){
+            var div_pixel = $("#plantillas .pixel").clone();
+            div_pixel.width(div_baldosa.width/size_baldosa);
+            div_pixel.height(div_baldosa.height/size_baldosa);  
+            div_pixel.find("#lbl_color").text(baldosas[i][j]);                
+            div_baldosa.append(div_pixel);
+        }
+        contenedor_baldosas.append(div_baldosa);
+    }          
 };
     
 $(function () { 
