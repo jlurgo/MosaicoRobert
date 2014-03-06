@@ -20,7 +20,7 @@ $(function () {
     
     var controles = $("#controles");
     
-    var escala = 1.6;
+    var escala = 1.4;
     $(image).load(function() {
         $canvas_imagen_original.attr("width", image.width);
         $canvas_imagen_original.attr("height", image.height);
