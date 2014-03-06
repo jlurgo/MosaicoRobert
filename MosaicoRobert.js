@@ -7,7 +7,14 @@ var dibujarBaldosas = function(baldosas){
     var contenedor_baldosas = $("#contenedor_baldosas");
     var plantilla_baldosa = $("#plantillas .baldosa");
     var plantilla_pixel = $("#plantillas .pixel");
-    
+    var capa_baldosas = $("#capa_baldosas");
+    for(var i=0; i< baldosas.length; i++){
+        var div_baldosa = plantilla_pixel.clone();
+        div_baldosa.css("width", Math.floor(size_baldosa).toString()+"px");
+        div_baldosa.css("height", Math.floor(size_baldosa).toString()+"px");
+        div_baldosa.find("#lbl_color").text(baldosa[j]);                
+        capa_baldosas.append(div_baldosa);
+    }
     contenedor_baldosas.hide();
     //for(var i=0; i< baldosas.length; i++){
     for(var i=0; i< 5; i++){ //debug sacar
