@@ -8,7 +8,7 @@ var dibujarBaldosas = function(baldosas){
     
     for(var i=0; i< baldosas.length; i++){
         var div_baldosa = $("#plantillas .baldosa").clone();
-        for(var j=0; baldosa[i].length; j++){
+        for(var j=0; baldosas[i][j].length; j++){
             var div_pixel = $("#plantillas .pixel").clone();
             div_pixel.width(div_baldosa.width/size_baldosa);
             div_pixel.height(div_baldosa.height/size_baldosa);  
