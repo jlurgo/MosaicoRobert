@@ -4,8 +4,11 @@ var map = function( x,  in_min,  in_max,  out_min,  out_max){
     
 $(function () { 
     var $canvas_imagen_original = $("#canvas_imagen_original");
+    var $canvas_imagen_grande = $("#canvas_imagen_grande");
     var canvas_imagen_original = $canvas_imagen_original[0];
+    var canvas_imagen_grande = $canvas_imagen_grande[0];
     var ctx = canvas_imagen_original.getContext("2d");
+    var ctx_grande = canvas_imagen_grande.getContext("2d");
     var image = new Image();
     image.src = "imagen_original.jpg";
     
@@ -18,8 +21,11 @@ $(function () {
     $(image).load(function() {
         $canvas_imagen_original.attr("width", image.width);
         $canvas_imagen_original.attr("height", image.height);
+        $canvas_imagen_grande.attr("width", image.width*2);
+        $canvas_imagen_grande.attr("height", image.height*2);
         ctx.drawImage(image, 0, 0);
-        var pixeles_imagen = ctx.getImageData(0, 0, canvas_imagen_original.width, canvas_imagen_original.height).data;
+        ctx_grande.drawImage(image, 0, 0, image.width*2, image.height*2);
+        var pixeles_imagen = ctx.getImageData(0, 0, image.width, image.height).data;
         btn_generar.click(function(){
             var size_baldosa = $("#size_baldosa").val();
             var cant_baldosas_h = Math.ceil(image.width/size_baldosa);
