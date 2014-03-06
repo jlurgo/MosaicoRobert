@@ -27,7 +27,7 @@ $(function () {
         ctx_grande.drawImage(image, 0, 0, image.width*2, image.height*2);
         var pixeles_imagen = ctx.getImageData(0, 0, image.width, image.height).data;
         btn_generar.click(function(){
-            var size_baldosa = int.parse($("#size_baldosa").val());
+            var size_baldosa = parseInt($("#size_baldosa").val());
             var cant_baldosas_h = Math.ceil(image.width/size_baldosa);
             var cant_baldosas_v = Math.ceil(image.height/size_baldosa);
             var baldosas = [];
