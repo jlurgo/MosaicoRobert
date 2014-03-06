@@ -60,7 +60,7 @@ $(function () {
                     var gris = Math.round(map(baldosa[j], 1, 30, 0, 255));
                     div_pixel.css("width", Math.floor(500/size_baldosa).toString()+"px");
                     div_pixel.css("height", Math.floor(500/size_baldosa).toString()+"px");
-                    div_pixel.css("background_color", "rgb("+ gris +","+ gris +","+ gris +")");
+                    div_pixel.css("background-color", "rgb("+ gris +","+ gris +","+ gris +")");
                     div_pixel.find("#lbl_color").text(baldosa[j]);                
                     div_baldosa.find("#contenedor_pixeles").append(div_pixel);
                 }
