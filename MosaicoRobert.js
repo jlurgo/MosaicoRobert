@@ -5,7 +5,7 @@ var map = function( x,  in_min,  in_max,  out_min,  out_max){
 var dibujarBaldosas = function(baldosas){
     var size_baldosa = $("#size_baldosa").val();
     var contenedor_baldosas = $("#contenedor_baldosas");
-    
+    contenedor_baldosas.hide();
     for(var i=0; i< baldosas.length; i++){
         var div_baldosa = $("#plantillas .baldosa").clone();
         var baldosa = baldosas[i];
@@ -17,7 +17,8 @@ var dibujarBaldosas = function(baldosas){
             div_baldosa.append(div_pixel);
         }
         contenedor_baldosas.append(div_baldosa);
-    }          
+    }     
+    contenedor_baldosas.show();
 };
     
 $(function () { 
