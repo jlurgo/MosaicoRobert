@@ -5,13 +5,16 @@ var map = function( x,  in_min,  in_max,  out_min,  out_max){
 var dibujarBaldosas = function(baldosas){
     var size_baldosa = $("#size_baldosa").val();
     var contenedor_baldosas = $("#contenedor_baldosas");
+    var plantilla_baldosa = $("#plantillas .baldosa");
+    var plantilla_pixel = $("#plantillas .pixel");
+    
     contenedor_baldosas.hide();
     for(var i=0; i< baldosas.length; i++){
-        var div_baldosa = $("#plantillas .baldosa").clone();
+        var div_baldosa = plantilla_baldosa.clone();
         div_baldosa.find("#numero_baldosa").text(i);
         var baldosa = baldosas[i];
         for(var j=0; j<baldosa.length; j++){
-            var div_pixel = $("#plantillas .pixel").clone();
+            var div_pixel = plantilla_pixel.clone();
             div_pixel.css("width", Math.floor(500/size_baldosa).toString()+"px");
             div_pixel.css("height", Math.floor(500/size_baldosa).toString()+"px");
             div_pixel.find("#lbl_color").text(baldosa[j]);                
