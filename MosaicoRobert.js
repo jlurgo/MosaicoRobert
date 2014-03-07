@@ -88,6 +88,16 @@ var Baldosa = function(x_baldosa, y_baldosa, numero_baldosa){
             }
         }
         contenedor_baldosas.append(div_baldosa_grande);
+        div_baldosa_grande.dialog({
+            title: "Baldosa " + numero_baldosa.toString(),
+            height: 800,
+            width: 800,
+            modal: true,
+            show: {
+                effect: "fade",
+                duration: 500
+            }
+        });
     });                    
     
     capa_baldosas.append(div_baldosa);     
