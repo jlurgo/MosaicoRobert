@@ -87,7 +87,7 @@ var Baldosa = function(x_baldosa, y_baldosa, numero_baldosa){
                 }
             }
         }
-        contenedor_baldosas.append(div_baldosa_grande);
+        contenedor_baldosas.append(div_baldosa_grande.clone());
         div_baldosa_grande.dialog({
             title: "Baldosa " + numero_baldosa.toString(),
             height: 720,
