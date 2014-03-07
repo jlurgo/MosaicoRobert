@@ -89,13 +89,16 @@ var Baldosa = function(x_baldosa, y_baldosa, numero_baldosa){
                     var verde_del_pixel = pixeles_imagen[(y_pixel * (canvas_imagen_original.width * 4)) + (x_pixel * 4+1)];
                     var azul_del_pixel = pixeles_imagen[(y_pixel * (canvas_imagen_original.width * 4)) + (x_pixel * 4)];
                     
-                    var gris_del_pixel = rojo_del_pixel;
-                    if(verde_del_pixel>gris_del_pixel) gris_del_pixel = verde_del_pixel;
-                    if(azul_del_pixel>gris_del_pixel) gris_del_pixel = azul_del_pixel;
-                    
-                    var gris_del_pixel_mapeado = Math.round(map(gris_del_pixel, 0, 255, 1, niveles_de_gris));
-                    
-                    var gris_del_pixel_redondeado = Math.round(map(gris_del_pixel_mapeado, 1, niveles_de_gris, 0, 255));
+                    //var gris_del_pixel = (rojo_del_pixel*0.3 + verde_del_pixel*0.59 + azul_del_pixel*0.11);
+                    var gris_del_pixel = (Math.max(rojo_del_pixel,verde_del_pixel, azul_del_pixel) + Math.min(rojo_del_pixel,verde_del_pixel, azul_del_pixel))/2;
+//                    if(verde_del_pixel>gris_del_pixel) gris_del_pixel = verde_del_pixel;
+//                    if(azul_del_pixel>gris_del_pixel) gris_del_pixel = azul_del_pixel;
+//                    
+                    var gris_del_pixel_mapeado = Math.round(map(gris_del_pixel, 0, 255, 1, niveles_de_gris));                    
+                    var gris_del_pixel_redondeado = Math.round(map(gris_del_pixel_mapeado, 1, niveles_de_gris, 0, 255));                    
+                    var gris_letra;
+                    if(gris_del_pixel_redondeado>125) gris_letra=0;
+                    if(gris_del_pixel_redondeado<=125) gris_letra=255;
                     
                     var div_pixel = plantilla_pixel.clone();
                     
@@ -105,6 +108,7 @@ var Baldosa = function(x_baldosa, y_baldosa, numero_baldosa){
                     div_pixel.css("top", ((y_pixel-y_baldosa)*size_pixel).toString()+"px");
                     div_pixel.css("background-color", "rgb("+ gris_del_pixel_redondeado +","+ gris_del_pixel_redondeado +","+ gris_del_pixel_redondeado +")");
                     div_pixel.find("#lbl_color").text(gris_del_pixel_mapeado);                
+                    div_pixel.find("#lbl_color").css("color", "rgb("+ gris_letra +","+ gris_letra +","+ gris_letra +")");                
                     div_baldosa_grande.find("#contenedor_pixeles").append(div_pixel);
                     
                     div_pixel.click(function(){

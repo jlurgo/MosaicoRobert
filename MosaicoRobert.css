@@ -43,8 +43,6 @@
 
 .pixel #lbl_color{
     font-size: 70%;
-    text-shadow: 0px 0px 5px #030303;
-    color: white;
     text-align: center;
 }
 
