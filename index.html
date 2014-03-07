@@ -10,8 +10,11 @@
 	<body>		
         <div id="panel_principal">
             <div id="controles">
+                <input type='file' name='img' size='65' id="upload_image" />
                 <label>Pixeles x lado de la baldosa:</label>
-                <input type="text" id="size_baldosa"/>
+                <input type="text" id="size_baldosa" value="30"/>
+                <label>Niveles de gris, del 1 al</label>
+                <input type="text" id="niveles_de_gris" value="30"/>
                 <input type="button" id="btn_generar" value="Generar Baldosas"/>
             </div>
             <canvas id="canvas_imagen_original" >
