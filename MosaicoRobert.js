@@ -65,7 +65,7 @@ var Baldosa = function(x_baldosa, y_baldosa, numero_baldosa){
     
     div_baldosa.click(function(){
         var div_baldosa_grande = plantilla_baldosa.clone();
-        div_baldosa_grande.find("#numero_baldosa").text(numero_baldosa);
+        div_baldosa_grande.find("#numero_baldosa").text("Baldosa " + numero_baldosa.toString());
                             
         for(var y_pixel=y_baldosa; y_pixel< y_baldosa + size_baldosa; y_pixel++){                            
             for(var x_pixel=x_baldosa; x_pixel< x_baldosa + size_baldosa; x_pixel++){                                    
