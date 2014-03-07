@@ -31,7 +31,6 @@ $(function () {
         pixeles_imagen = ctx.getImageData(0, 0, image.width, image.height).data;
         
         btn_generar.click(function(){
-            controles.hide();
             size_baldosa = parseInt($("#size_baldosa").val());
             size_pixel = Math.floor(630/size_baldosa);
             cant_baldosas_h = Math.ceil(image.width/size_baldosa);
