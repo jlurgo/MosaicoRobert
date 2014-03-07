@@ -90,12 +90,12 @@ var Baldosa = function(x_baldosa, y_baldosa, numero_baldosa){
         contenedor_baldosas.append(div_baldosa_grande);
         div_baldosa_grande.dialog({
             title: "Baldosa " + numero_baldosa.toString(),
-            height: 690,
+            height: 720,
             width: 665,
             modal: true,
             show: {
                 effect: "fade",
-                duration: 500
+                duration: 200
             }
         });
     });                    
