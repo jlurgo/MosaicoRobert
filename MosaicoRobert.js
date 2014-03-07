@@ -88,7 +88,10 @@ var Baldosa = function(x_baldosa, y_baldosa, numero_baldosa){
                     var rojo_del_pixel = pixeles_imagen[(y_pixel * (canvas_imagen_original.width * 4)) + (x_pixel * 4)];
                     var verde_del_pixel = pixeles_imagen[(y_pixel * (canvas_imagen_original.width * 4)) + (x_pixel * 4+1)];
                     var azul_del_pixel = pixeles_imagen[(y_pixel * (canvas_imagen_original.width * 4)) + (x_pixel * 4)];
-                    var gris_del_pixel = (rojo_del_pixel + verde_del_pixel + azul_del_pixel)/3;
+                    
+                    var gris_del_pixel = rojo_del_pixel;
+                    if(verde_del_pixel>gris_del_pixel) gris_del_pixel = verde_del_pixel;
+                    if(azul_del_pixel>gris_del_pixel) gris_del_pixel = azul_del_pixel;
                     
                     var gris_del_pixel_mapeado = Math.round(map(gris_del_pixel, 0, 255, 1, niveles_de_gris));
                     
