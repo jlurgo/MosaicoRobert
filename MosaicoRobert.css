@@ -10,6 +10,7 @@
 .baldosa #contenedor_pixeles{
     width:630px;
     height:630px;
+    position:relative;
 }
 
 #numero_baldosa{
@@ -19,8 +20,13 @@
 .pixel{
     display: inline-block;
     border: 1px solid rgb(163, 163, 163);
-    position: relative;
+    position: absolute;
     box-sizing: border-box;
+    cursor:pointer;
+}
+
+.pixel:hover{
+    border: 1px solid orange;
 }
 
 .pixel #lbl_color{
