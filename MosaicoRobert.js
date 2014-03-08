@@ -16,7 +16,7 @@ var dibujarImagenes = function(){
     
     ctx.drawImage(image, 0, 0);
     ctx_grande.drawImage(image, 0, 0, image.width*escala, image.height*escala);
-    url.revokeObjectURL(src);
+    //url.revokeObjectURL(src);
     
     image_data = ctx.getImageData(0, 0, image.width, image.height);
     pixeles_imagen = image_data.data;
