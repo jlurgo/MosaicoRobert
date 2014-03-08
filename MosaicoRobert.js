@@ -8,6 +8,10 @@ var dibujarImagenes = function(){
     $canvas_imagen_grande.attr("width", image.width*escala);
     $canvas_imagen_grande.attr("height", image.height*escala);
     
+    $canvas_imagen_grande.hide();
+    
+    capa_baldosas.empty();
+    
     niveles_de_gris = parseInt($("#niveles_de_gris").val());
     
     ctx.drawImage(image, 0, 0);
@@ -63,6 +67,27 @@ var dibujarImagenes = function(){
         }
     }
     ctx_grande.putImageData(image_data_grande, 0, 0);
+    
+    
+    size_baldosa = parseInt($("#size_baldosa").val());
+    size_pixel = Math.floor(630/size_baldosa);
+    cant_baldosas_h = Math.ceil(image.width/size_baldosa);
+    cant_baldosas_v = Math.ceil(image.height/size_baldosa);
+        
+    capa_baldosas.css("width", (cant_baldosas_h*size_baldosa*escala).toString()+"px");
+    capa_baldosas.css("height", (cant_baldosas_v*size_baldosa*escala).toString()+"px");
+
+    for(var ibv=0; ibv< cant_baldosas_v; ibv++){
+        for(var ibh=0; ibh< cant_baldosas_h; ibh++){
+            var x_baldosa = size_baldosa*ibh;
+            var y_baldosa = size_baldosa*ibv;
+            var numero_baldosa = (cant_baldosas_h * ibv) + ibh;
+            
+            var baldosa = new Baldosa(x_baldosa, y_baldosa, numero_baldosa);                
+        }
+    }  
+    
+    $canvas_imagen_grande.show();
 }
     
 $(function () { 
@@ -109,28 +134,9 @@ $(function () {
     
     $(image).load(function() {   
         dibujarImagenes();
-        btn_generar.click(function(){
-            size_baldosa = parseInt($("#size_baldosa").val());
-            size_pixel = Math.floor(630/size_baldosa);
-            cant_baldosas_h = Math.ceil(image.width/size_baldosa);
-            cant_baldosas_v = Math.ceil(image.height/size_baldosa);
-            
-            dibujarImagenes();
-            
-            capa_baldosas.empty();
-            capa_baldosas.css("width", (cant_baldosas_h*size_baldosa*escala).toString()+"px");
-            capa_baldosas.css("height", (cant_baldosas_v*size_baldosa*escala).toString()+"px");
-
-            for(var ibv=0; ibv< cant_baldosas_v; ibv++){
-                for(var ibh=0; ibh< cant_baldosas_h; ibh++){
-                    var x_baldosa = size_baldosa*ibh;
-                    var y_baldosa = size_baldosa*ibv;
-                    var numero_baldosa = (cant_baldosas_h * ibv) + ibh;
-                    
-                    var baldosa = new Baldosa(x_baldosa, y_baldosa, numero_baldosa);                
-                }
-            }   
-        });
+    });
+    btn_generar.click(function(){
+        dibujarImagenes();
     });
 });
 

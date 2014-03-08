@@ -48,6 +48,7 @@
 #lbl_lado, #lbl_niveles_gris{
     width:30px;
     display: inline-block;
+    font-weight:bold;
 }
 
 #controles{
