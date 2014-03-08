@@ -10,6 +10,7 @@ $(function () {
     canvas_imagen_grande = $canvas_imagen_grande[0];
     ctx = canvas_imagen_original.getContext("2d");
     ctx_grande = canvas_imagen_grande.getContext("2d");
+    escala = 1.5;
     
     btn_generar = $("#btn_generar");
     contenedor_baldosas = $("#contenedor_baldosas");
@@ -17,7 +18,6 @@ $(function () {
     plantilla_pixel = $("#plantillas .pixel");
     capa_baldosas = $("#capa_baldosas");
     
-    btn_generar.hide();
     image = new Image();
     
     upload_image.addEventListener("change", function(){
@@ -26,14 +26,11 @@ $(function () {
         src = url.createObjectURL(f);        
         image.src = src;
         capa_baldosas.empty();
-        contenedor_baldosas.empty();
-        btn_generar.show();
-        
+        contenedor_baldosas.empty();        
     }, false);
     
     controles = $("#controles");
-    
-    escala = 1.5;
+    image.src = "imagen_original.jpg";
     $(image).load(function() {
         $canvas_imagen_original.attr("width", image.width);
         $canvas_imagen_original.attr("height", image.height);
