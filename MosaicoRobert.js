@@ -101,7 +101,6 @@ $(function () {
     escala = 1.5;
     $("#niveles_de_gris").change(function(){
         $("#lbl_niveles_gris").text($("#niveles_de_gris").val());
-        dibujarImagenes();
     });
     
     $("#size_baldosa").change(function(){
@@ -115,6 +114,8 @@ $(function () {
             size_pixel = Math.floor(630/size_baldosa);
             cant_baldosas_h = Math.ceil(image.width/size_baldosa);
             cant_baldosas_v = Math.ceil(image.height/size_baldosa);
+            
+            dibujarImagenes();
             
             capa_baldosas.empty();
             capa_baldosas.css("width", (cant_baldosas_h*size_baldosa*escala).toString()+"px");
