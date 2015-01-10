@@ -88,6 +88,8 @@ var dibujarImagenes = function(){
     }  
     
     $canvas_imagen_grande.show();
+    
+    
 }
     
 $(function () { 
