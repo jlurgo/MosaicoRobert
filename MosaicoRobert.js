@@ -21,6 +21,11 @@ var dibujarImagenes = function(){
     image_data = ctx.getImageData(0, 0, image.width, image.height);
     pixeles_imagen = image_data.data;
     
+    materiales = [];
+    for (i=0; i<niveles_de_gris; i++)
+    {
+        materiales.push(0);
+    }
     for (j=0; j<image_data.height; j++)
     {
         for (i=0; i<image_data.width; i++)
@@ -35,6 +40,8 @@ var dibujarImagenes = function(){
 
             var gris_del_pixel_mapeado = Math.round(map(gris_del_pixel, 0, 255, 1, niveles_de_gris));                    
             var gris_del_pixel_redondeado = Math.round(map(gris_del_pixel_mapeado, 1, niveles_de_gris, 0, 255)); 
+            
+            materiales[gris_del_pixel_mapeado-1]++;
             
             pixeles_imagen[index]=gris_del_pixel_redondeado;
             pixeles_imagen[index+1]=gris_del_pixel_redondeado;
@@ -88,7 +95,27 @@ var dibujarImagenes = function(){
     }  
     
     $canvas_imagen_grande.show();
-    
+    ctx_materiales = $("#canvas_grafico_materiales")[0].getContext("2d");
+    labels = [];
+    for (i=0; i<materiales.length; i++)
+    {
+        labels.push((i+1).toString());
+    }
+    var data_grafico ={
+        labels:labels,
+        datasets: [
+            {
+                label: "Materiales",
+                fillColor: "gray",
+                strokeColor: "gray",
+                highlightFill: "gray",
+                highlightStroke: "orange",
+                data: materiales
+            }   
+        ]
+    }
+    if(window.grafico_materiales!==undefined) grafico_materiales.destroy();
+    grafico_materiales = new Chart(ctx_materiales).Bar(data_grafico, {});
     
 }
     
